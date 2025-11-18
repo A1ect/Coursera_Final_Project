@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Навигационная Панель</title>
+    <style>
+        /* Общие стили для тела страницы */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Стили для навигационной панели */
+        .nav-bar {
+            background-color: #333; /* Темный фон для контраста */
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Стили для списка элементов навигации */
+        .nav-list {
+            list-style: none; /* Убрать маркеры списка */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Расположить элементы в ряд */
+            justify-content: center; /* Центрировать элементы */
+        }
+
+        /* Стили для отдельных элементов списка */
+        .nav-item {
+            margin: 0 20px;
+        }
+
+        /* Стили для ссылок (текста навигации) */
+        .nav-link {
+            color: #ffffff; /* Белый цвет текста */
+            text-decoration: none; /* Убрать стандартное подчеркивание */
+            font-size: 18px;
+            
+            /* Важно: обеспечить плавный переход и возможность изменения жирности */
+            font-weight: normal; 
+            transition: font-weight 0.2s, text-decoration 0.2s;
+        }
+
+        /* Стили при наведении курсора (Hover Effect) */
+        .nav-link:hover {
+            /* 1. Жирный шрифт (font becomes bold) */
+            font-weight: **bold**; 
+            
+            /* 2. Подчеркивание текста (text is underlined) */
+            text-decoration: **underline**; 
+            
+            color: #ffcc00; /* Дополнительный эффект для наглядности */
+        }
+
+    </style>
+</head>
+<body>
+    
+    <nav class="nav-bar">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Project details</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Recommendations</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <div style="text-align: center; padding: 50px;">
+        <p></p>
+    </div>
+
+</body>
+</html>

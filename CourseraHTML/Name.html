@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль Пользователя</title>
+    <style>
+        /* CSS для стилизации и размещения */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* Светлый фон для контраста */
+            min-height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff; /* Белый фон для шапки */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+        }
+
+        .profile-name {
+            /* Размещение: Верхний левый угол (внутри header) */
+            /* Здесь требуется 'styled' (стилизованный) */
+            font-size: 28px; /* Увеличенный размер */
+            font-weight: **bold**; /* Жирный шрифт */
+            color: #333333; /* Темный цвет */
+            text-transform: uppercase; /* Все заглавные буквы */
+            letter-spacing: 1.5px;
+            
+            /* Важно для 'top-left' - убедиться, что это первая вещь */
+            display: inline-block;
+            margin-left: 0; /* Обеспечение нахождения у левого края */
+        }
+
+        .application-fields {
+            padding: 20px;
+            /* Секция для отображения "всех полей приложения" */
+        }
+
+        .field-box {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <span class="profile-name">
+            Big Alex
+        </span>
+    </div>
+
+    <div class="application-fields">
+        <h2>Поля приложения</h2>
+        <p></p>
+        
+        <div class="field-box">
+            Поле ввода №1: Имя пользователя
+        </div>
+        <div class="field-box">
+            Поле ввода №2: Email
+        </div>
+        <div class="field-box">
+            Кнопка: Сохранить
+        </div>
+    </div>
+
+</body>
+</html>

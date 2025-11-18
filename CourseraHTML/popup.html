@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up Подтверждения Рекомендации</title>
+    <style>
+        /* (CSS из предыдущего примера для рекомендаций...) */
+        
+        /* Стили для формы добавления рекомендации */
+        /* ... (Стили формы) */
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #fcfcfc;
+        }
+
+        .recommendations-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff9800; 
+            margin-bottom: 40px;
+            font-size: 30px;
+        }
+
+        .recommendations-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .recommendation-block {
+            flex: 1 1 30%;
+            min-width: 280px;
+            background-color: #fffaf0;
+            border-left: 5px solid #ff9800;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .recommendation-text {
+            font-style: italic;
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .author-info {
+            text-align: right;
+            border-top: 1px dashed #ffd79b;
+            padding-top: 10px;
+        }
+
+        .author-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .author-title {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .add-recommendation-form {
+            background-color: #f8f8f8;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+        }
+
+        .add-recommendation-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .add-recommendation-form textarea,
+        .add-recommendation-form input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .add-recommendation-form button {
+            background-color: #ff9800;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-recommendation-form button:hover {
+            background-color: #e68900;
+        }
+
+
+        /* --- СТИЛИ ДЛЯ ВСПЛЫВАЮЩЕГО ОКНА (POP-UP) --- */
+        .popup-overlay {
+            display: none; /* Скрываем по умолчанию */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            animation: fadeIn 0.3s;
+        }
+        
+        .popup-content h3 {
+            color: #28a745; /* Зеленый цвет для успеха */
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .popup-content button {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="recommendations-section">
+        
+        <h2>Рекомендации (Recommendations)</h2>
+        
+        <div class="recommendations-container" id="recommendations-list">
+            <div class="recommendation-block">... Рекомендация 1 ...</div>
+            <div class="recommendation-block">... Рекомендация 2 ...</div>
+            <div class="recommendation-block">... Рекомендация 3 ...</div>
+        </div>
+
+        
+        <div class="add-recommendation-form">
+            <h3>Добавить новую рекомендацию</h3>
+            <label for="new-text">Текст рекомендации:</label>
+            <textarea id="new-text" rows="4" placeholder="Введите текст рекомендации..."></textarea>
+            
+            <label for="new-author-name">Имя автора:</label>
+            <input type="text" id="new-author-name" placeholder="Иван Иванов">
+            
+            <label for="new-author-title">Должность автора:</label>
+            <input type="text" id="new-author-title" placeholder="Менеджер проектов">
+            
+            <button onclick="addRecommendation()">Добавить рекомендацию</button>
+        </div>
+
+    </div>
+
+    <div class="popup-overlay" id="confirmation-popup">
+        <div class="popup-content">
+            <h3>Thank you for leaving a recommendation!</h3>
+            <button onclick="closePopup()">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        function addRecommendation() {
+            const text = document.getElementById('new-text').value;
+            const authorName = document.getElementById('new-author-name').value;
+            const authorTitle = document.getElementById('new-author-title').value;
+
+            if (!text || !authorName || !authorTitle) {
+                alert('Пожалуйста, заполните все поля!');
+                return;
+            }
+
+            const recommendationsList = document.getElementById('recommendations-list');
+
+            // 1. Создание и добавление нового блока (как в предыдущем задании)
+            const newRecommendationBlock = document.createElement('div');
+            newRecommendationBlock.classList.add('recommendation-block');
+
+            newRecommendationBlock.innerHTML = `
+                <p class="recommendation-text">"${text}"</p>
+                <div class="author-info">
+                    <p class="author-name">${authorName}</p>
+                    <p class="author-title">${authorTitle}</p>
+                </div>
+            `;
+
+            recommendationsList.appendChild(newRecommendationBlock);
+
+            // 2. Очистка полей формы
+            document.getElementById('new-text').value = '';
+            document.getElementById('new-author-name').value = '';
+            document.getElementById('new-author-title').value = '';
+            
+            // 3. Вызов всплывающего окна
+            openPopup();
+        }
+
+        function openPopup() {
+            document.getElementById('confirmation-popup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('confirmation-popup').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

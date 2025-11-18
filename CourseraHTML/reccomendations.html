@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Секция Рекомендаций</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #fcfcfc;
+        }
+
+        /* Секция Рекомендаций */
+        .recommendations-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff9800; /* Оранжевый акцент */
+            margin-bottom: 40px;
+            font-size: 30px;
+        }
+
+        /* Контейнер для карточек рекомендаций */
+        .recommendations-container {
+            display: flex; /* Для расположения в ряд */
+            justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* Стили для каждого блока рекомендации (styled) */
+        .recommendation-block {
+            flex: 1 1 30%; /* Обеспечивает 3 блока в ряд */
+            min-width: 280px;
+            background-color: #fffaf0; /* Очень светлый фон */
+            border-left: 5px solid #ff9800; /* Главный стилизованный элемент */
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .recommendation-text {
+            font-style: italic;
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .author-info {
+            text-align: right;
+            border-top: 1px dashed #ffd79b;
+            padding-top: 10px;
+        }
+
+        .author-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .author-title {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="recommendations-section">
+        
+        <h2>Рекомендации (Recommendations)</h2>
+        
+        <div class="recommendations-container">
+            
+            <div class="recommendation-block">
+                <p class="recommendation-text">
+                    "Имя Студента проявил невероятную работоспособность и быстро освоил принципы адаптивной верстки. 
+                    Он самостоятельно решил сложную задачу по интеграции API, показав отличные навыки самообучения."
+                </p>
+                <div class="author-info">
+                    <p class="author-name">Иван Петров</p>
+                    <p class="author-title">Старший разработчик, IT-компания "Альфа"</p>
+                </div>
+            </div>
+            
+            <div class="recommendation-block">
+                <p class="recommendation-text">
+                    "На протяжении нашего курса, Имя Студента был одним из самых активных и любознательных слушателей. 
+                    Его проект по созданию интерактивного портфолио был выполнен на высочайшем уровне с применением последних стандартов CSS."
+                </p>
+                <div class="author-info">
+                    <p class="author-name">Мария Сидорова</p>
+                    <p class="author-title">Преподаватель, Учебный центр "Прогресс"</p>
+                </div>
+            </div>
+
+            <div class="recommendation-block">
+                <p class="recommendation-text">
+                    "Я впечатлен его умением работать в команде и вниманием к деталям. 
+                    Во время совместного хакатона Имя Студента взял на себя ответственность за фронтенд и справился с задачей досрочно и качественно."
+                </p>
+                <div class="author-info">
+                    <p class="author-name">Дмитрий Кузнецов</p>
+                    <p class="author-title">Тимлид, Стартап "НьюВейв"</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

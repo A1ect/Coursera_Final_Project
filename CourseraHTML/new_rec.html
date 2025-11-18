@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление Рекомендации</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #fcfcfc;
+        }
+
+        /* Секция Рекомендаций */
+        .recommendations-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff9800; /* Оранжевый акцент */
+            margin-bottom: 40px;
+            font-size: 30px;
+        }
+
+        /* Контейнер для карточек рекомендаций */
+        .recommendations-container {
+            display: flex; /* Для расположения в ряд */
+            justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 30px; /* Отступ от формы добавления */
+        }
+
+        /* Стили для каждого блока рекомендации (styled) */
+        .recommendation-block {
+            flex: 1 1 30%;
+            min-width: 280px;
+            background-color: #fffaf0;
+            border-left: 5px solid #ff9800;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .recommendation-text {
+            font-style: italic;
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .author-info {
+            text-align: right;
+            border-top: 1px dashed #ffd79b;
+            padding-top: 10px;
+        }
+
+        .author-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .author-title {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Стили для формы добавления рекомендации */
+        .add-recommendation-form {
+            background-color: #f8f8f8;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+        }
+
+        .add-recommendation-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .add-recommendation-form textarea,
+        .add-recommendation-form input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .add-recommendation-form button {
+            background-color: #ff9800;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-recommendation-form button:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="recommendations-section">
+        
+        <h2>Рекомендации (Recommendations)</h2>
+        
+        <div class="recommendations-container" id="recommendations-list">
+            
+            <div class="recommendation-block">
+                <p class="recommendation-text">
+                    "Имя Студента проявил невероятную работоспособность и быстро освоил принципы адаптивной верстки. 
+                    Он самостоятельно решил сложную задачу по интеграции API, показав отличные навыки самообучения."
+                </p>
+                <div class="author-info">
+                    <p class="author-name">Иван Петров</p>
+                    <p class="author-title">Старший разработчик, IT-компания "Альфа"</p>
+                </div>
+            </div>
+            
+            <div class="recommendation-block">
+                <p class="recommendation-text">
+                    "На протяжении нашего курса, Имя Студента был одним из самых активных и любознательных слушателей. 
+                    Его проект по созданию интерактивного портфолио был выполнен на высочайшем уровне с применением последних стандартов CSS."
+                </p>
+                <div class="author-info">
+                    <p class="author-name">Мария Сидорова</p>
+                    <p class="author-title">Преподаватель, Учебный центр "Прогресс"</p>
+                </div>
+            </div>
+
+            <div class="recommendation-block">
+                <p class="recommendation-text">
+                    "Я впечатлен его умением работать в команде и вниманием к деталям. 
+                    Во время совместного хакатона Имя Студента взял на себя ответственность за фронтенд и справился с задачей досрочно и качественно."
+                </p>
+                <div class="author-info">
+                    <p class="author-name">Дмитрий Кузнецов</p>
+                    <p class="author-title">Тимлид, Стартап "НьюВейв"</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="add-recommendation-form">
+            <h3>Добавить новую рекомендацию</h3>
+            <label for="new-text">Текст рекомендации:</label>
+            <textarea id="new-text" rows="4" placeholder="Введите текст рекомендации..."></textarea>
+            
+            <label for="new-author-name">Имя автора:</label>
+            <input type="text" id="new-author-name" placeholder="Иван Иванов">
+            
+            <label for="new-author-title">Должность автора:</label>
+            <input type="text" id="new-author-title" placeholder="Менеджер проектов">
+            
+            <button onclick="addRecommendation()">Добавить рекомендацию</button>
+        </div>
+
+    </div>
+
+    <script>
+        function addRecommendation() {
+            const text = document.getElementById('new-text').value;
+            const authorName = document.getElementById('new-author-name').value;
+            const authorTitle = document.getElementById('new-author-title').value;
+
+            if (!text || !authorName || !authorTitle) {
+                alert('Пожалуйста, заполните все поля!');
+                return;
+            }
+
+            const recommendationsList = document.getElementById('recommendations-list');
+
+            // Создаем новый блок рекомендации
+            const newRecommendationBlock = document.createElement('div');
+            newRecommendationBlock.classList.add('recommendation-block');
+
+            newRecommendationBlock.innerHTML = `
+                <p class="recommendation-text">"${text}"</p>
+                <div class="author-info">
+                    <p class="author-name">${authorName}</p>
+                    <p class="author-title">${authorTitle}</p>
+                </div>
+            `;
+
+            // Добавляем новый блок в конец списка
+            recommendationsList.appendChild(newRecommendationBlock);
+
+            // Очищаем поля формы
+            document.getElementById('new-text').value = '';
+            document.getElementById('new-author-name').value = '';
+            document.getElementById('new-author-title').value = '';
+        }
+    </script>
+
+</body>
+</html>

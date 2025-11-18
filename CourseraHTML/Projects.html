@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Секция Проектов</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #f4f7f6;
+        }
+
+        /* Секция Проектов */
+        .projects-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            text-align: center;
+            color: #28a745; /* Зеленый акцент */
+            margin-bottom: 40px;
+            font-size: 30px;
+        }
+
+        /* Контейнер для карточек проектов */
+        .projects-container {
+            display: flex; /* Для расположения в ряд */
+            justify-content: space-between; /* Распределение пространства */
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Стили для каждой карточки проекта (styled) */
+        .project-card {
+            flex: 1 1 30%; /* Обеспечивает 3 карточки в ряд */
+            min-width: 250px;
+            background-color: #e9f7ef; /* Светло-зеленый фон */
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title {
+            font-size: 22px;
+            color: #216a35;
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 5px;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="projects-section">
+        
+        <h2>Детали Проектов (Project Details)</h2>
+        
+        <div class="projects-container">
+            
+            <div class="project-card">
+                <h3 class="project-title">1. Менеджер задач на JavaScript</h3>
+                <p class="project-description">
+                    Проект To-Do List, реализованный с использованием чистого JavaScript, HTML5 и CSS. 
+                    Включает функционал добавления, удаления и пометки задач как выполненных. Использовано локальное хранилище для сохранения данных.
+                </p>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">2. Адаптивный веб-сайт-портфолио</h3>
+                <p class="project-description">
+                    Персональный веб-сайт, разработанный с акцентом на **адаптивный дизайн** (mobile-first approach) с использованием Grid и Flexbox. 
+                    Демонстрирует навыки верстки и кроссбраузерной совместимости.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3 class="project-title">3. Калькулятор чаевых (Python/Flask)</h3>
+                <p class="project-description">
+                    Простой веб-инструмент для расчета чаевых и разделения счета между людьми. 
+                    Бэкенд реализован на **Python с фреймворком Flask**. Помогает понять основы взаимодействия фронтенда и бэкенда.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
